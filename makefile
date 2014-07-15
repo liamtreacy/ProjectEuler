@@ -1,3 +1,3 @@
 all:
-	g++ main.cpp -o main
-	./main
+	g++ problems.cpp -o projectEulerProblemsAndTests
+	./projectEulerProblemsAndTests

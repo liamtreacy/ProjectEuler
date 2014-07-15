@@ -1,13 +1,10 @@
 #include <iostream>
+#include <assert.h>
 #include <string>
 
 std::string boolToString(bool val)
 {
-	if(val)
-	{
-		return "TRUE";
-	}
-	return "FALSE";
+	return val ? "TRUE" : "FALSE";
 }
 
 
@@ -20,6 +17,7 @@ bool isPrime(int num)
 		if(num%i == 0)
 		{
 			prime = false;
+			break;
 		}
 	}
 
@@ -27,15 +25,10 @@ bool isPrime(int num)
 }
 
 
-void run_tests() 
-{
-	std::cout << "-- isPrime " << 1 << " : " << boolToString(isPrime(1)) << std::endl;
-	std::cout << "-- isPrime " << 5 << " : " << boolToString(isPrime(5)) << std::endl;
-	std::cout << "-- isPrime " << 8 << " : " << boolToString(isPrime(8)) << std::endl;
-}
-
-// if we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-// Find the sum of all the multiples of 3 or 5 below 1000.
+/* Problem One:
+ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+ Find the sum of all the multiples of 3 or 5 below 1000.
+ */
 
 void runProblemOne()
 {
@@ -59,8 +52,8 @@ two terms. By starting with 1 and 2, the first 10 terms will be:
 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 
 By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
-find the sum of the even-valued terms.*/
-
+find the sum of the even-valued terms.
+ */
 void runProblemTwo()
 {
 	long prevFib = 1;
@@ -86,23 +79,37 @@ void runProblemTwo()
 	std::cout << "-- Problem Two  - Answer is: " << sum << std::endl;
 }
 
-/*What is the largest prime factor of the number 600851475143 ?*/
-
+/*
+ What is the largest prime factor of the number 600851475143?
+ */
 void runProblemThree()
 {
 	long num = 600851475143;
-	long largest = 0;
+	long curr_largest;
 
-
-	std::cout << "-- Problem Three - Answer is: " << largest << std::endl;	
+	std::cout << "-- Problem Three - Answer is: " << curr_largest << std::endl;	
 }
+
+
+void run_tests() 
+{
+	assert(isPrime(1));
+	assert(isPrime(5));
+	assert(!isPrime(8));
+
+	std::cout << "-- Tests ok!" << std::endl << std::endl;
+}
+
 
 int main(int argc, char **argv) 
 {
 	std::cout << std::endl << "--------------------------------------------" << std::endl;
+	
+	run_tests();
 	runProblemOne();
   	runProblemTwo();
   	//runProblemThree();
+
   	std::cout << std::endl << "--------------------------------------------" << std::endl << std::endl;
 
   	return 0;
