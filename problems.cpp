@@ -103,16 +103,15 @@ void run_tests()
 
 int main(int argc, char **argv) 
 {
-	std::cout << std::endl << "--------------------------------------------" << std::endl;
-	
-	run_tests();
+    if (argc > 1 && std::string(argv[1]) == "--run-tests") {
+        run_tests();
+    } else {
 	runProblemOne();
   	runProblemTwo();
   	//runProblemThree();
+    }
 
-  	std::cout << std::endl << "--------------------------------------------" << std::endl << std::endl;
-
-  	return 0;
+    return 0;
 }
 
 
