@@ -94,7 +94,7 @@ void runProblemThree()
 void run_tests() 
 {
 	assert(isPrime(1));
-	assert(!isPrime(5)); // wrong
+	assert(isPrime(5));
 	assert(!isPrime(8));
 
 	std::cout << "-- Tests ok!" << std::endl << std::endl;
